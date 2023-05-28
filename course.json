@@ -1,0 +1,160 @@
+{
+    "courses": [
+        {
+            "id": "1",
+            "name": "Microbiology BSc",
+            "type": "Undergraduate",
+            "clevel": "Level 4",
+            "description": "Course overview This course is accredited by the Royal Society of Biology. You will spend a lot of time in our £5 million Super Lab gaining hands-on lab experience. Practical learning and laboratory experience starts early in semester one of the first year. Your lab skills will improve throughout the first and second years. In your final year, you will become a member of a research laboratory and carry out your own year-long research project. Some students have even had their work published in scientific journals. What you will study Microbiologists play an important role in helping to prevent disease, develop new treatments, clean up the environment, and keep food safe. You will study the micro-organisms which affect the environment, human, animal and plant health, and find out how to use microbes to make medicines and vaccines. You will explore the use of good and bad bacteria, viruses and eukaryotic microbes, and learn different methods needed for the safe handling of level 2 pathogens. These are biological agents that can cause disease, including Staphylococcus aureus, Listeria and Salmonella. Our range of optional modules in the second and third years allows you to tailor your study to your interests. When you graduate you will be qualified to work with microbial pathogens. This means you can work in a laboratory in research or a pharmaceutical company. You will learn: sterile technique how to identify bacteria (including pathogenic bacteria) how to grow and characterise bacteria in the laboratory the mechanisms of anti-microbial resistance how to detect and count virusesgene analysis and cloning All microbiology teaching staff are actively involved in research. This ensures that you are learning up-to-date topics and ideas. We aim to produce graduates who are ready to go out and help tackle some of the biggest problems facing our world today. Why choose this course Explore different areas of microbiology, including disease, health, food and the environment Accredited by the Royal Society of Biology, who cited good practice in having a research-led curriculum and the progressive development of laboratory skills Optional industry year supported by our placement team, for real-life experience One-to-one support on your research project from academic supervisors and lab mentors You can choose to add an additional year in Computer Science when you start your degree. Cover topics on programming, software development, modelling and more. Important Information This online prospectus has been drafted in advance of the academic year to which it applies. Every effort has been made to ensure that the information is accurate at the time of publishing, but changes (for example to course content) are likely to occur given the interval between publishing and commencement of the course. It is therefore very important to check this website for any updates before you apply for the course where there has been an interval between you reading this website and applying.",
+            "entry_requirements": "AAB",
+            "start_date": "September 2024",
+            "duration": 3,
+            "full_time": true,
+            "tuition_fees": {
+                "GBP": 9250,
+                "EUR": 10300,
+                "USD": 12000
+            },
+            "image_url": "" ,
+            "modules": {
+                "Year 1": {
+                    "mandatory": [
+                        "Introduction to Biotechnology",
+                        "Introduction to Genetics and Biochemistry",
+                        "Microbes and You",
+                        "The Physiology of Microbes",
+                        "Foundation Science for Bioscientists",
+                        "Essential study skills",
+                        "Micro-organisms and Disease"
+                    ],
+                    "optional": []
+                },
+                "Year 2": {
+                    "mandatory": [
+                        "Fundamentals of immunology",
+                        "Research techniques for microbiologists",
+                        "Medical Microbiology",
+                        "Bacterial Biological Diversity",
+                        "Virology",
+                        "Analysis of Bacterial Gene Expression",
+                        "Microbial Mechanisms of Foodborne Disease"
+                    ],
+                    "optional": [
+                        "Molecular Biology and the Dynamic Cell",
+                        "The Genome and Human Disease",
+                        "Infection and Immunity",
+                        "Structure, Function and Analysis of Genes",
+                        "Fundamental and Applied Yeast Physiology",
+                        "Bacterial Genes and Development",
+                        "Microbial Biotechnology",
+                        "Computer Modelling in Science: Introduction",
+                        "Structure, Function and Analysis of Proteins",
+                        "Yeast and Fermentation Technology"
+                    ]
+                },
+                "Year 3": {
+                    "mandatory": [
+                        "Microbiology Research Project"
+                    ],
+                    "optional": [
+                        "The Microbial Isolation and Identification Methods",
+                        "Pathogens - Vaccines and therapies",
+                        "Molecular Microbiology and Biotechnology",
+                        "Microbial Fermentation",
+                        "Virology and Cellular Microbiology",
+                        "Rapid Methods in Microbiology",
+                        "Basic Introduction to Omic Technologies",
+                        "Molecular Parasitology",
+                        "Ageing, Sex and DNA Repair",
+                        "Plant Cell Signalling",
+                        "Plant Disease Control",
+                        "Environmental Biotechnology",
+                        "Molecular Microbiology and Infections"
+                    ]
+                }
+            },
+            "funding_available": true
+        },
+        {
+            "id": "2",
+            "name": "Chemistry BSc",
+            "type": "Undergraduate",
+            "clevel": "Level 4",
+            "description": "Course overview Chemistry plays an important role in our society. It is central to finding sustainable solutions to global problems. This includes developing new drugs and vaccines, researching clean energy resources, and feeding a growing population. You'll be taught by experts who will feed your curiosity for this exciting subject. You may even recognise some of our staff from the popular Periodic Videos YouTube channel. You'll study all the key areas of chemistry, including organic, inorganic and physical chemistry. Optional modules allow you to tailor your degree to your own interests, such as studying the links between chemistry, physics and biology. Sustainable chemistry Green and sustainable chemistry is a key research interest here at the University of Nottingham. We have active research in using chemistry as a tool to tackle global challenges. These challenges include developing benign synthesis for manufacture, decreasing our reliance on fossil fuels for power generation and how to develop next-generation materials that impact batteries and solar panels. On this degree, you can study optional modules in green and sustainable chemistry. These modules will give you an understanding of how to make chemical processes more environmentally friendly, and how to use chemistry to tackle environmental challenges. Medicinal chemistry Chemistry is key to understanding drugs and treating illnesses. You can choose to study modules that cover medicinal chemistry and drug development throughout your degree. In these optional modules you’ll learn about design and synthesis of pharmaceuticals, drug delivery, metabolism and targeting. View our Medicinal and Biological Chemistry BSc >. Careers and employability The University of Nottingham is the second-most targeted university in the UK by leading employers (High Fliers' Graduate Market in 2022). A degree in chemistry will prepare you for a wide range of careers. You’ll develop the necessary academic and practical skills for a career in industry, whether that be in pharmaceutical, petrochemical, cosmetics or others. You’ll also develop your written and oral communication skills, and gain transferable skills such as problem-solving, numeracy and data analysis. A significant proportion of our students go onto postgraduate study. Important information This online prospectus has been drafted in advance of the academic year to which it applies. Every effort has been made to ensure that the information is accurate at the time of publishing, but changes (for example to course content) are likely to occur given the interval between publishing and commencement of the course. It is therefore very important to check this website for any updates before you apply for the course where there has been an interval between you reading this website and applying.",
+            "entry_requirements": "AAB-ABB",
+            "start_date": "September 2024",
+            "duration": 3,
+            "full_time": true,
+            "tuition_fees": {
+                "GBP": 9250,
+                "EUR": 10300,
+                "USD": 12000
+            },
+            "image_url": "" ,
+            "modules": {
+                "Year 1": {
+                    "mandatory": [
+                        "Introduction to Structure",
+                        "Periodicity and Coordination Chemistry",
+                        "Introduction to Spectroscopy",
+                        "Energy and Bonding in Chemistry",
+                        "Introduction to Organic Molecules and their Reactivity",
+                        "Foundation Laboratory Work",
+                        "Chemistry Study Skills",
+                        "Calculations in Chemistry"
+                    ],
+                    "optional": [
+                        "Introduction to Green Chemistry and Processing",
+                        "Molecules of Life",
+                        "Frontiers in Chemistry",
+                        "Mathematics for Chemistry"
+                    ]
+                },
+                "Year 2": {
+                    "mandatory": [
+                        "Introduction to Structure",
+                        "Periodicity and Coordination Chemistry",
+                        "Medical Microbiology",
+                        "Bacterial Biological Diversity",
+                        "Virology",
+                        "Analysis of Bacterial Gene Expression",
+                        "Microbial Mechanisms of Foodborne Disease"
+                    ],
+                    "optional": [
+                        "Molecular Biology and the Dynamic Cell",
+                        "The Genome and Human Disease",
+                        "Infection and Immunity",
+                        "Structure, Function and Analysis of Genes",
+                        "Fundamental and Applied Yeast Physiology",
+                        "Bacterial Genes and Development",
+                        "Microbial Biotechnology",
+                        "Computer Modelling in Science: Introduction",
+                        "Structure, Function and Analysis of Proteins",
+                        "Yeast and Fermentation Technology"
+                    ]
+                },
+                "Year 3": {
+                    "mandatory": [
+                        "Microbiology Research Project"
+                    ],
+                    "optional": [
+                        "The Microbial Isolation and Identification Methods",
+                        "Pathogens - Vaccines and therapies",
+                        "Molecular Microbiology and Biotechnology",
+                        "Microbial Fermentation",
+                        "Virology and Cellular Microbiology",
+                        "Rapid Methods in Microbiology",
+                        "Basic Introduction to Omic Technologies",
+                        "Molecular Parasitology",
+                        "Ageing, Sex and DNA Repair",
+                        "Plant Cell Signalling",
+                        "Plant Disease Control",
+                        "Environmental Biotechnology",
+                        "Molecular Microbiology and Infections"
+                    ]
+                }
+            },
+            "funding_available": true
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "courses": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "clevel": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "entry_study": {
+                "type": "string"
+              },
+              "entry_requirements": {
+                "type": "string"
+              },
+              "start_date": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "integer"
+              },
+              "full_time": {
+                "type": "boolean"
+              },
+              "tuition_fees": {
+                "type": "object",
+                "properties": {
+                  "GBP": {
+                    "type": "integer"
+                  },
+                  "EUR": {
+                    "type": "integer"
+                  },
+                  "USD": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "GBP",
+                  "EUR",
+                  "USD"
+                ]
+              },
+              "image_url": {
+                "type": "string"
+              },
+              "modules": {
+                "type": "object",
+                "properties": {
+                  "Year 1": {
+                    "type": "object",
+                    "properties": {
+                      "mandatory": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "optional": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "Year 2": {
+                    "type": "object",
+                    "properties": {
+                      "mandatory": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "optional": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "Year 3": {
+                    "type": "object",
+                    "properties": {
+                      "mandatory": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "optional": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "funding_available": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type",
+              "clevel",
+              "description",
+              "entry_study",
+              "entry_requirements",
+              "start_date",
+              "duration",
+              "tuition_fees",
+              "modules",
+              "funding_available"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "courses"
+    ]
+  }
