@@ -2,159 +2,34 @@
     "courses": [
         {
             "id": "1",
-            "name": "Microbiology BSc",
-            "type": "Undergraduate",
-            "clevel": "Level 4",
-            "description": "Course overview This course is accredited by the Royal Society of Biology. You will spend a lot of time in our £5 million Super Lab gaining hands-on lab experience. Practical learning and laboratory experience starts early in semester one of the first year. Your lab skills will improve throughout the first and second years. In your final year, you will become a member of a research laboratory and carry out your own year-long research project. Some students have even had their work published in scientific journals. What you will study Microbiologists play an important role in helping to prevent disease, develop new treatments, clean up the environment, and keep food safe. You will study the micro-organisms which affect the environment, human, animal and plant health, and find out how to use microbes to make medicines and vaccines. You will explore the use of good and bad bacteria, viruses and eukaryotic microbes, and learn different methods needed for the safe handling of level 2 pathogens. These are biological agents that can cause disease, including Staphylococcus aureus, Listeria and Salmonella. Our range of optional modules in the second and third years allows you to tailor your study to your interests. When you graduate you will be qualified to work with microbial pathogens. This means you can work in a laboratory in research or a pharmaceutical company. You will learn: sterile technique how to identify bacteria (including pathogenic bacteria) how to grow and characterise bacteria in the laboratory the mechanisms of anti-microbial resistance how to detect and count virusesgene analysis and cloning All microbiology teaching staff are actively involved in research. This ensures that you are learning up-to-date topics and ideas. We aim to produce graduates who are ready to go out and help tackle some of the biggest problems facing our world today. Why choose this course Explore different areas of microbiology, including disease, health, food and the environment Accredited by the Royal Society of Biology, who cited good practice in having a research-led curriculum and the progressive development of laboratory skills Optional industry year supported by our placement team, for real-life experience One-to-one support on your research project from academic supervisors and lab mentors You can choose to add an additional year in Computer Science when you start your degree. Cover topics on programming, software development, modelling and more. Important Information This online prospectus has been drafted in advance of the academic year to which it applies. Every effort has been made to ensure that the information is accurate at the time of publishing, but changes (for example to course content) are likely to occur given the interval between publishing and commencement of the course. It is therefore very important to check this website for any updates before you apply for the course where there has been an interval between you reading this website and applying.",
-            "entry_requirements": "AAB",
-            "start_date": "September 2024",
-            "duration": 3,
-            "full_time": true,
-            "tuition_fees": {
-                "GBP": 9250,
-                "EUR": 10300,
-                "USD": 12000
-            },
+            "name": "Biochemistry BSc (Hons)",
+            "level": "Undergraduate",
+            "overview": "Biochemistry underpins the very nature of our existence and acquiring skills and knowledge of this subject will help you solve key biological problems. Our Biochemistry degree is aimed at helping you understand the interconnectedness of chemistry, physics and biology by exploring a range of different topics. This includes protein – protein interactions, recognising how macromolecular structure is closely linked to biological function and how this is perturbed in disease. You will find this biochemistry course has a unique blend of biochemistry related topics including genetics, microbiology, physiology and chemistry. You can also specialise in more focused areas including thermodynamics, molecular geometry as well as medical and industrial applications of biochemistry.",
+            "highlights": "<ul><li>Modules designed to help you achieve the highest levels of understanding.</li><li>Collaborations with the life science sector for industrial application.</li><li>Practice and practical application sessions for a more engaging experience.</li><li>Global specialists to talk through highly specialized skills.</li><li>Elective modules that allow you to shape your own active blended learning experience.</li><li>HP laptop and software included with this course for eligible students (see Eligibility criteria and terms and conditions).</li></ul>",
+            "course_details": "<h3>Year 1</h3><p>In the first year of our biochemistry degree, you explore bond formation and dissociation, energy storage and transfer, and the structure and function of macromolecules. You also develop your practical skills as a biochemist engaging in laboratory-based learning and work with qualitative and quantitative biochemical data.</p><h3>Year 2</h3><p>In the second year, our processes of life module provides a conceptual approach to biochemistry while pure chemistry offers a more mathematical understanding. You then begin to develop your research proposals for your final year dissertation project.</p><h3>Year 3</h3><p>In the final year of this biochemistry course, you will do an independent dissertation project supervised by an academic tutor. In addition, you can explore contemporary issues in biochemistry and how diagnostic tests are applied in clinical contexts. If you are particularly interested in genetics, you might follow a bespoke pathway. That could start with which starts with ‘genetics and molecular biology’ in the first year before advancing to ‘genes and genomics’ in the second year and then completing your final year with medical genetics. Our Microbiology theme includes ‘Introduction to microbiology’ in your first year, Techniques in molecular biology in your second year and then pathogen biology in your final year. There are also additional optional modules that can be undertaken which include immunology, pharmacology, neuroscience as well as a placement module.</p><p>Please note the modules shown here relate to the academic year 23/24. The modules relating to the academic year 24/25 will be available from June 2024.</p>",
+            "entry_requirements": "<p>Standard entry requirements apply for this biochemistry degree. A typical offer is:</p><ul><li>BCC at A Level or,</li><li>DMM at BTEC or,</li><li>Pass (C and above) at T Level</li></ul><p>In addition, you are expected to have studied at least two natural sciences at Grade C or above, one of them being Chemistry (the additional accepted Science A levels are; Biology, Human Biology, Science, Math or Physics) or Science, Forensic Science or Medical Science at BTEC or T Level.</p><p>We welcome international applicants and applications from students with a range of non-traditional educational or professional qualifications.</p><p>For more information on how to make an application, please visit our How to Apply page.</p><h3>Integrated Foundation Year (IFY) Entry Requirements</h3><p>Admission to the BSc Biochemistry 4 year Programme with Foundation Study is normally:</p><ul><li>DEE at A Level or,</li><li>MPP at BTEC or,</li><li>Pass (D or E) at T Level</li></ul><p>In addition, you are expected to have studied a natural science subject (preferably Biology or Human Biology but Chemistry and Physics are also accepted) in an A Level at grade D, or equivalent qualification such as International Baccalaureate.</p><p>However, we would also like to hear from you if you have professional or industry experience instead, a range of other qualifications or self-developed subject knowledge that relates to the course you wish to study.</p><h3>English Language Requirements</h3><p>All International and EU students applying for a course with us must meet the following minimum English language requirements:</p><ul><li>IELTS 6.0 (or equivalent) with a minimum of 5.5 in all bands for study at undergraduate level</li></ul><p>For information regarding English language requirements at the University, please see our IELTS page.</p><p>If you are an International student and would like information on making an application, please see our How to Apply page.</p>",
+            "fees_and_funding": "<h3>2023/24 Tuition Fees</h3><p>Fees quoted relate to study in the Academic Year 23/24 only and may be subject to inflationary increases in future years.</p><ul><li>UK – Full Time: £9,250</li><li>UK – Part Time: £1,540 per 20 credit module</li><li>UK – Integrated Foundation Year: £9,250</li><li>International – Full Time: £14,750</li><li>International – Integrated Foundation Year: £14,750</li></ul><p>Additional costs</p><p>There are no additional costs for this biochemistry course for students beginning their studies in September 2023. Should this change, applicants and students will be contacted by the university with details of the costs.</p><h3>2022/23 Tuition Fees</h3><p>Fees quoted relate to study in the Academic Year 22/23 only and may be subject to inflationary increases in future years.</p><ul><li>UK  – Full Time: £9,250</li><li>UK – Part Time: £1,500 per 20 credit module</li><li>UK – Integrated Foundation Year: £9,250 for the foundation year; thereafter standard fees apply</li><li>International – Full-time: £14,000</li><li>International – Integrated Foundation Year: £14,000 for the foundation year; thereafter standard fees apply</li></ul><p>Additional costs</p><p>There are no additional costs for this biochemistry course for students beginning their studies in September 2022. Should this change, applicants and students will be contacted by the university with details of the costs.</p><p>For information on the scholarships available to you, please see our scholarships page.</p>",
+            "accreditation": "Application for accreditation to the Royal Society of Biology is in process.",
+            "student_perks": "<p>At the University of Northampton, everything we do, from funded trips to paid internships, is to give you everything you need to make a difference when you leave.</p><p>If you join our full-time Biochemistry degree at Northampton, you will receive a laptop when your course begins*. The laptops are built to a bespoke custom specification ideal for use in the seminar room, collaborative group work or studying at home.</p><p>Whatever your ambitions, we’re here to help you to achieve them. We’ll support you to identify the skills you’re learning during your biochemistry course, find your strengths and secure practical experience so that when it comes to applying for jobs or further study you’ll feel confident in standing out from the crowd. We’ve created the Northampton Employment Promise because we are so confident that if you focus on your studies and complete one of our awards you’ll be highly employable by the time you graduate. Putting you in a great position to secure employment or continue your studies.</p><p>To check out the full list of perks, visit our Student Perks page or dedicated International Perks page.</p><p>*UK fee payers only (see Terms and Conditions for further details).</p>",
             "image_url": "" ,
-            "modules": {
-                "Year 1": {
-                    "mandatory": [
-                        "Introduction to Biotechnology",
-                        "Introduction to Genetics and Biochemistry",
-                        "Microbes and You",
-                        "The Physiology of Microbes",
-                        "Foundation Science for Bioscientists",
-                        "Essential study skills",
-                        "Micro-organisms and Disease"
-                    ],
-                    "optional": []
-                },
-                "Year 2": {
-                    "mandatory": [
-                        "Fundamentals of immunology",
-                        "Research techniques for microbiologists",
-                        "Medical Microbiology",
-                        "Bacterial Biological Diversity",
-                        "Virology",
-                        "Analysis of Bacterial Gene Expression",
-                        "Microbial Mechanisms of Foodborne Disease"
-                    ],
-                    "optional": [
-                        "Molecular Biology and the Dynamic Cell",
-                        "The Genome and Human Disease",
-                        "Infection and Immunity",
-                        "Structure, Function and Analysis of Genes",
-                        "Fundamental and Applied Yeast Physiology",
-                        "Bacterial Genes and Development",
-                        "Microbial Biotechnology",
-                        "Computer Modelling in Science: Introduction",
-                        "Structure, Function and Analysis of Proteins",
-                        "Yeast and Fermentation Technology"
-                    ]
-                },
-                "Year 3": {
-                    "mandatory": [
-                        "Microbiology Research Project"
-                    ],
-                    "optional": [
-                        "The Microbial Isolation and Identification Methods",
-                        "Pathogens - Vaccines and therapies",
-                        "Molecular Microbiology and Biotechnology",
-                        "Microbial Fermentation",
-                        "Virology and Cellular Microbiology",
-                        "Rapid Methods in Microbiology",
-                        "Basic Introduction to Omic Technologies",
-                        "Molecular Parasitology",
-                        "Ageing, Sex and DNA Repair",
-                        "Plant Cell Signalling",
-                        "Plant Disease Control",
-                        "Environmental Biotechnology",
-                        "Molecular Microbiology and Infections"
-                    ]
-                }
+            "integrated_foundation_year": "<p>The Integrated Foundation Year (IFY) offers a new and exciting route into studying for our biochemistry degree, attracting ambitious and driven students who are willing to learn and advance.</p><p>If you have non-standard qualifications or do not quite meet the admissions requirements, we can offer you a fantastic opportunity to study a four-year programme which includes an Integrated Foundation Year. The Integrated Foundation Year will help you develop the theoretical/practical and academic skills you need in order to successfully progress to the full award.</p><p>Our four-year courses will enable you to successfully follow the degree pathway of your choice while gaining essential study skills. The foundation year of your chosen degree will be studied on a full-time basis and is aimed at supporting the transition to higher education. Years two, three, and four are then studied as a standard degree programme.</p>",
+            "placements": "<p>A full, one academic sandwich year is available to students between the second and third year modules. Staff can help you ascertain placements either; locally, nationally or even globally through their connections.</p><p>There is also an optional 20 credit placement module in the final year. This module spans both first and second semesters and is ideal for a local placement, gaining experience without adding an extra year to your studies.</p>" ,
+            "duration": {
+                "full-time": 3,
+                "full-time-foundation": 4,
+                "part-time": "4-6"
             },
-            "funding_available": true
-        },
-        {
-            "id": "2",
-            "name": "Chemistry BSc",
-            "type": "Undergraduate",
-            "clevel": "Level 4",
-            "description": "Course overview Chemistry plays an important role in our society. It is central to finding sustainable solutions to global problems. This includes developing new drugs and vaccines, researching clean energy resources, and feeding a growing population. You'll be taught by experts who will feed your curiosity for this exciting subject. You may even recognise some of our staff from the popular Periodic Videos YouTube channel. You'll study all the key areas of chemistry, including organic, inorganic and physical chemistry. Optional modules allow you to tailor your degree to your own interests, such as studying the links between chemistry, physics and biology. Sustainable chemistry Green and sustainable chemistry is a key research interest here at the University of Nottingham. We have active research in using chemistry as a tool to tackle global challenges. These challenges include developing benign synthesis for manufacture, decreasing our reliance on fossil fuels for power generation and how to develop next-generation materials that impact batteries and solar panels. On this degree, you can study optional modules in green and sustainable chemistry. These modules will give you an understanding of how to make chemical processes more environmentally friendly, and how to use chemistry to tackle environmental challenges. Medicinal chemistry Chemistry is key to understanding drugs and treating illnesses. You can choose to study modules that cover medicinal chemistry and drug development throughout your degree. In these optional modules you’ll learn about design and synthesis of pharmaceuticals, drug delivery, metabolism and targeting. View our Medicinal and Biological Chemistry BSc >. Careers and employability The University of Nottingham is the second-most targeted university in the UK by leading employers (High Fliers' Graduate Market in 2022). A degree in chemistry will prepare you for a wide range of careers. You’ll develop the necessary academic and practical skills for a career in industry, whether that be in pharmaceutical, petrochemical, cosmetics or others. You’ll also develop your written and oral communication skills, and gain transferable skills such as problem-solving, numeracy and data analysis. A significant proportion of our students go onto postgraduate study. Important information This online prospectus has been drafted in advance of the academic year to which it applies. Every effort has been made to ensure that the information is accurate at the time of publishing, but changes (for example to course content) are likely to occur given the interval between publishing and commencement of the course. It is therefore very important to check this website for any updates before you apply for the course where there has been an interval between you reading this website and applying.",
-            "entry_requirements": "AAB-ABB",
-            "start_date": "September 2024",
-            "duration": 3,
-            "full_time": true,
-            "tuition_fees": {
-                "GBP": 9250,
-                "EUR": 10300,
-                "USD": 12000
+            "starting": "September",
+            "price-uk": {
+                "full-time": 9250,
+                "part-time": 1540,
+                "integrated_foundation_year": 9250
             },
-            "image_url": "" ,
-            "modules": {
-                "Year 1": {
-                    "mandatory": [
-                        "Introduction to Structure",
-                        "Periodicity and Coordination Chemistry",
-                        "Introduction to Spectroscopy",
-                        "Energy and Bonding in Chemistry",
-                        "Introduction to Organic Molecules and their Reactivity",
-                        "Foundation Laboratory Work",
-                        "Chemistry Study Skills",
-                        "Calculations in Chemistry"
-                    ],
-                    "optional": [
-                        "Introduction to Green Chemistry and Processing",
-                        "Molecules of Life",
-                        "Frontiers in Chemistry",
-                        "Mathematics for Chemistry"
-                    ]
-                },
-                "Year 2": {
-                    "mandatory": [
-                        "Introduction to Structure",
-                        "Periodicity and Coordination Chemistry",
-                        "Medical Microbiology",
-                        "Bacterial Biological Diversity",
-                        "Virology",
-                        "Analysis of Bacterial Gene Expression",
-                        "Microbial Mechanisms of Foodborne Disease"
-                    ],
-                    "optional": [
-                        "Molecular Biology and the Dynamic Cell",
-                        "The Genome and Human Disease",
-                        "Infection and Immunity",
-                        "Structure, Function and Analysis of Genes",
-                        "Fundamental and Applied Yeast Physiology",
-                        "Bacterial Genes and Development",
-                        "Microbial Biotechnology",
-                        "Computer Modelling in Science: Introduction",
-                        "Structure, Function and Analysis of Proteins",
-                        "Yeast and Fermentation Technology"
-                    ]
-                },
-                "Year 3": {
-                    "mandatory": [
-                        "Microbiology Research Project"
-                    ],
-                    "optional": [
-                        "The Microbial Isolation and Identification Methods",
-                        "Pathogens - Vaccines and therapies",
-                        "Molecular Microbiology and Biotechnology",
-                        "Microbial Fermentation",
-                        "Virology and Cellular Microbiology",
-                        "Rapid Methods in Microbiology",
-                        "Basic Introduction to Omic Technologies",
-                        "Molecular Parasitology",
-                        "Ageing, Sex and DNA Repair",
-                        "Plant Cell Signalling",
-                        "Plant Disease Control",
-                        "Environmental Biotechnology",
-                        "Molecular Microbiology and Infections"
-                    ]
-                }
+            "price-international": {
+                "full-time": 14750,
+                "integrated_foundation_year": 14750
             },
-            "funding_available": true
+            "faq": "<h3>How will I be taught?</h3><p>You will be taught in a variety of ways on this biochemistry degree; traditional face-to-face small seminars, online sessions through our virtual classroom, asynchronously, and through additional support sessions.</p><h3>How many hours per week of teaching/personal tutoring?</h3><p>You will typically have between 12-14 hours of taught content and an additional hour available with your designated tutor.</p><h3>How will I be assessed?</h3><p>Each of the 6 modules you study each year will have 2 items of assessment (essentially 12 assessment items each year). These range from essays, posters, presentations, blogs, graded practical sessions, time-constrained essays, and exams.</p><h3>What jobs can I go into from studying this course?</h3><p>Many graduates of the hard sciences tend to stay in the field. Many go on to consider MSc or PhD, work for the NHS, laboratories, pharmaceutical industries, and the education sector.</p>"
         }
     ]
 }
