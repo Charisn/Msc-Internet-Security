@@ -1,5 +1,5 @@
 // Load the course.json file
-fetch('Users/Charis/Desktop/Msc-Courses/Internet_Programming/final_exercise')
+fetch('course.json')
   .then(response => response.json())
   .then(data => validateCourseData(data))
   .catch(error => console.error('Error loading course.json:', error));
@@ -105,10 +105,10 @@ function validateCourseData(data) {
   // Validate the data against the schema
   const valid = validateWithSchema(data, schema);
 
-  if (!valid) {
-    console.error('Invalid course.json:', validateWithSchema.errors);
-    return;
-  }
+  // if (!valid) {
+  //   console.error('Invalid course.json:', validateWithSchema.errors);
+  //   return;
+  // }
 
   // Data is valid, create the course table
   createCourseTable(data);
@@ -137,21 +137,24 @@ function createCourseTable(data) {
   data.courses.forEach(course => {
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td>${course.id}</td>
       <td>${course.name}</td>
-      <td>${course.type}</td>
-      <td>${course.clevel}</td>
-      <td>${course.description}</td>
+      <td>${course.level}</td>
+      <td>${course.overview}</td>
+      <td>${course.highlights}</td>
+      <td>${course.course_details}</td>
       <td>${course.entry_requirements}</td>
-      <td>${course.start_date}</td>
+      <td>${course.fees_and_funding}</td>
+      <td>${course.student_perks}</td>
+      <td>${course.duration.image_url} Years</td>
+      <td>${course.placements}</td>
       <td>${course.duration}</td>
-      <td>${course.full_time}</td>
-      <td>${course.tuition_fees.GBP}</td>
-      <td>${course.tuition_fees.EUR}</td>
-      <td>${course.tuition_fees.USD}</td>
-      <td>${course.image_url}</td>
-      <td>${course.funding_available}</td>
+      <td>${course.starting}</td>
+      <td>${course.price_uk}</td>
+      <td>${course.price_international}</td>
+      <td>${course.location}</td>
+      <td>${course.faq}</td>
     `;
     tableBody.appendChild(row);
   });
+  
 }

@@ -1,144 +1,138 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "courses": {
-        "type": "array",
-        "items": [
-          {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "courses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 99999
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Course",
+            "maxLength": 100
+          },
+          "level": {
+            "type": "string",
+            "description": "Is the course undergraduate or postgraduate"
+          },
+          "overview": {
+            "type": "string",
+            "description": "Description of the course"
+          },
+          "highlights": {
+            "type": "string",
+            "description": "A list of course highlights"
+          },
+          "course_details": {
+            "type": "string",
+            "description": "Course details for each year"
+          },
+          "entry_requirements": {
+            "type": "string",
+            "description": "Entry requirements for the course"
+          },
+          "fees_and_funding": {
+            "type": "string",
+            "description": "A more detailed display of pricing"
+          },
+          "accreditation": {
+            "type": "string"
+          },
+          "student_perks": {
+            "type": "string",
+            "description": "More informations about student perks"
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "integrated_foundation_year": {
+            "type": "string"
+          },
+          "placements": {
+            "type": "string"
+          },
+          "duration": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "name": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              },
-              "clevel": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "entry_study": {
-                "type": "string"
-              },
-              "entry_requirements": {
-                "type": "string"
-              },
-              "start_date": {
-                "type": "string"
-              },
-              "duration": {
-                "type": "integer"
-              },
               "full_time": {
-                "type": "boolean"
+                "type": ["integer", "string"]
               },
-              "tuition_fees": {
-                "type": "object",
-                "properties": {
-                  "GBP": {
-                    "type": "integer"
-                  },
-                  "EUR": {
-                    "type": "integer"
-                  },
-                  "USD": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "GBP",
-                  "EUR",
-                  "USD"
-                ]
+              "full_time-foundation": {
+                "type": "integer"
               },
-              "image_url": {
+              "part_time": {
                 "type": "string"
-              },
-              "modules": {
-                "type": "object",
-                "properties": {
-                  "Year 1": {
-                    "type": "object",
-                    "properties": {
-                      "mandatory": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "optional": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "Year 2": {
-                    "type": "object",
-                    "properties": {
-                      "mandatory": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "optional": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "Year 3": {
-                    "type": "object",
-                    "properties": {
-                      "mandatory": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "optional": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "funding_available": {
-                "type": "boolean"
               }
             },
-            "required": [
-              "id",
-              "name",
-              "type",
-              "clevel",
-              "description",
-              "entry_study",
-              "entry_requirements",
-              "start_date",
-              "duration",
-              "tuition_fees",
-              "modules",
-              "funding_available"
-            ]
+            "required": ["full_time", "full_time-foundation", "part_time"]
+          },
+          "starting": {
+            "type": "string"
+          },
+          "price-uk": {
+            "type": "object",
+            "properties": {
+              "full_time": {
+                "type": "integer"
+              },
+              "part_time": {
+                "type": "integer"
+              },
+              "integrated_foundation_year": {
+                "type": "integer"
+              }
+            },
+            "required": ["full_time", "part_time", "integrated_foundation_year"]
+          },
+          "price-international": {
+            "type": "object",
+            "properties": {
+              "full_time": {
+                "type": "integer"
+              },
+              "integrated_foundation_year": {
+                "type": "integer"
+              }
+            },
+            "required": ["full_time", "integrated_foundation_year"]
+          },
+          "location": {
+            "type": "string"
+          },
+          "faq": {
+            "type": "string",
+            "description": "Frequently asked questions"
           }
+        },
+        "required": [
+          "id",
+          "name",
+          "level",
+          "overview",
+          "highlights",
+          "course_details",
+          "entry_requirements",
+          "fees_and_funding",
+          "accreditation",
+          "student_perks",
+          "image_url",
+          "integrated_foundation_year",
+          "placements",
+          "duration",
+          "starting",
+          "price-uk",
+          "price-international",
+          "location",
+          "faq"
         ]
       }
-    },
-    "required": [
-      "courses"
-    ]
-  }
+    }
+  },
+  "required": ["courses"]
+}
