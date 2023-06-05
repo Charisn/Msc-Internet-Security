@@ -128,33 +128,54 @@ function validateWithSchema(data, schema) {
   }
 }
 
-// Create the course table
+// Create the course table with divs
 function createCourseTable(data) {
-  // Get the table body element
-  const tableBody = document.querySelector('#course-table tbody');
+  // Get the course table container element
+  const courseTableContainer = document.querySelector('#course-table');
+
+  // Create the table container div
+  const tableContainer = document.createElement('div');
+  tableContainer.classList.add('table-container');
+
+  // Create the table header row div
+  const headerRow = document.createElement('div');
+  headerRow.classList.add('header-row');
+
+  // Create the table header cells
+  const headerCells = Object.keys(data.courses[0]);
+  headerCells.forEach(headerCell => {
+    const headerCellDiv = document.createElement('div');
+    headerCellDiv.classList.add('header-cell');
+    headerCellDiv.textContent = headerCell;
+    headerRow.appendChild(headerCellDiv);
+  });
+
+  // Add the header row to the table container
+  tableContainer.appendChild(headerRow);
 
   // Iterate over each course and add a row to the table
   data.courses.forEach(course => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${course.name}</td>
-      <td>${course.level}</td>
-      <td>${course.overview}</td>
-      <td>${course.highlights}</td>
-      <td>${course.course_details}</td>
-      <td>${course.entry_requirements}</td>
-      <td>${course.fees_and_funding}</td>
-      <td>${course.student_perks}</td>
-      <td>${course.duration.image_url} Years</td>
-      <td>${course.placements}</td>
-      <td>${course.duration}</td>
-      <td>${course.starting}</td>
-      <td>${course.price_uk}</td>
-      <td>${course.price_international}</td>
-      <td>${course.location}</td>
-      <td>${course.faq}</td>
-    `;
-    tableBody.appendChild(row);
+    const courseRow = document.createElement('div');
+    courseRow.classList.add('course-row');
+
+    Object.values(course).forEach(courseValue => {
+      const courseCell = document.createElement('div');
+      courseCell.classList.add('course-cell');
+
+      // Check if the course value is HTML data
+      if (typeof courseValue === 'string' && courseValue.startsWith('<')) {
+        courseCell.innerHTML = courseValue; // Render as HTML
+      } else {
+        courseCell.textContent = courseValue; // Render as text
+      }
+
+      courseRow.appendChild(courseCell);
+    });
+
+    tableContainer.appendChild(courseRow);
   });
-  
+
+  // Add the table container to the course table container
+  courseTableContainer.appendChild(tableContainer);
 }
+

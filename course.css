@@ -1,0 +1,25 @@
+.table-container > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.header-row {
+    font-size: 15px;
+    font-weight: 800;
+    border-bottom: solid 1px;
+    text-transform: uppercase;
+}
+
+.course-cell {
+    padding: 5px;
+    border: solid 1px;
+}
+
+.header-cell {
+    border: solid 1px;
+}
+
+.table-container > div > div {width: 300px;max-height: 200px;overflow-y: auto;overflow-x: hidden;}
