@@ -1,16 +1,24 @@
-.table-container > div {
+/* .table-container > div {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 10px;
     padding: 10px;
+} */
+.table-container > div {
+    display: grid;
+    padding: 10px;
+    grid-auto-flow: column;
 }
-
+.header-cell {
+    margin: 0 5px;
+}
 .header-row {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 800;
     border-bottom: solid 1px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .course-cell {
@@ -22,4 +30,9 @@
     border: solid 1px;
 }
 
-.table-container > div > div {width: 300px;max-height: 200px;overflow-y: auto;overflow-x: hidden;}
+.table-container > div > div {
+    width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
