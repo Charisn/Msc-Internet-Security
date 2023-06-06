@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://127.0.0.1:5500/courseschema.json",
   "type": "object",
   "title": "Json Schema",
   "properties": {
