@@ -1,138 +1,49 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "title": "Json Schema",
   "properties": {
-    "courses": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 99999
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the Course",
-            "maxLength": 100
-          },
-          "level": {
-            "type": "string",
-            "description": "Is the course undergraduate or postgraduate"
-          },
-          "overview": {
-            "type": "string",
-            "description": "Description of the course"
-          },
-          "highlights": {
-            "type": "string",
-            "description": "A list of course highlights"
-          },
-          "course_details": {
-            "type": "string",
-            "description": "Course details for each year"
-          },
-          "entry_requirements": {
-            "type": "string",
-            "description": "Entry requirements for the course"
-          },
-          "fees_and_funding": {
-            "type": "string",
-            "description": "A more detailed display of pricing"
-          },
-          "accreditation": {
-            "type": "string"
-          },
-          "student_perks": {
-            "type": "string",
-            "description": "More informations about student perks"
-          },
-          "image_url": {
-            "type": "string"
-          },
-          "integrated_foundation_year": {
-            "type": "string"
-          },
-          "placements": {
-            "type": "string"
-          },
-          "duration": {
-            "type": "object",
-            "properties": {
-              "full_time": {
-                "type": ["integer", "string"]
-              },
-              "full_time-foundation": {
-                "type": "integer"
-              },
-              "part_time": {
-                "type": "string"
-              }
-            },
-            "required": ["full_time", "full_time-foundation", "part_time"]
-          },
-          "starting": {
-            "type": "string"
-          },
-          "price-uk": {
-            "type": "object",
-            "properties": {
-              "full_time": {
-                "type": "integer"
-              },
-              "part_time": {
-                "type": "integer"
-              },
-              "integrated_foundation_year": {
-                "type": "integer"
-              }
-            },
-            "required": ["full_time", "part_time", "integrated_foundation_year"]
-          },
-          "price-international": {
-            "type": "object",
-            "properties": {
-              "full_time": {
-                "type": "integer"
-              },
-              "integrated_foundation_year": {
-                "type": "integer"
-              }
-            },
-            "required": ["full_time", "integrated_foundation_year"]
-          },
-          "location": {
-            "type": "string"
-          },
-          "faq": {
-            "type": "string",
-            "description": "Frequently asked questions"
-          }
+    "id": {
+      "type": "number",
+      "minimum": 0
+    },
+    "name": {
+      "description": "Full name of the course.",
+      "type": "string",
+      "maxLength": 255
+    },
+    "overview": {
+      "description": "Overview of the course.",
+      "type": "string"
+    },
+    "key_facts": {
+      "type": "string"
+    },
+    "highlights": {
+      "type": "string"
+    },
+    "tab_content": {
+      "description": "A list of tabs from the course.",
+      "type": "object",
+      "required": ["tab1"],
+      "minItems": 1,
+      "properties": {
+        "tab1": {
+          "type": "string"
         },
-        "required": [
-          "id",
-          "name",
-          "level",
-          "overview",
-          "highlights",
-          "course_details",
-          "entry_requirements",
-          "fees_and_funding",
-          "accreditation",
-          "student_perks",
-          "image_url",
-          "integrated_foundation_year",
-          "placements",
-          "duration",
-          "starting",
-          "price-uk",
-          "price-international",
-          "location",
-          "faq"
-        ]
+        "tab2": {
+          "type": "string"
+        },
+        "tab3": {
+          "type": "string"
+        }
       }
+    },
+    "image_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
     }
   },
-  "required": ["courses"]
+  "required": ["id", "name", "overview", "key_facts", "highlights", "tab_content", "image_url"]
 }
