@@ -1,49 +1,57 @@
 {
-  "$schema": "http://127.0.0.1:5500/courseschema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
   "type": "object",
-  "title": "Json Schema",
+  "required": ["courses"],
   "properties": {
-    "id": {
-      "type": "number",
-      "minimum": 0
-    },
-    "name": {
-      "description": "Full name of the course.",
-      "type": "string",
-      "maxLength": 255
-    },
-    "overview": {
-      "description": "Overview of the course.",
-      "type": "string"
-    },
-    "key_facts": {
-      "type": "string"
-    },
-    "highlights": {
-      "type": "string"
-    },
-    "tab_content": {
-      "description": "A list of tabs from the course.",
-      "type": "object",
-      "required": ["tab1"],
-      "minItems": 1,
-      "properties": {
-        "tab1": {
-          "type": "string"
-        },
-        "tab2": {
-          "type": "string"
-        },
-        "tab3": {
-          "type": "string"
+    "courses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "overview", "key_facts", "highlights", "tab_content", "image_url"],
+        "properties": {
+          "id": {
+            "type": "number",
+            "minimum": 0
+          },
+          "name": {
+            "description": "Full name of the course.",
+            "type": "string",
+            "maxLength": 255
+          },
+          "overview": {
+            "description": "Overview of the course.",
+            "type": "string"
+          },
+          "key_facts": {
+            "type": "string"
+          },
+          "highlights": {
+            "type": "string"
+          },
+          "tab_content": {
+            "description": "A list of tabs from the course.",
+            "type": "object",
+            "required": ["tab1"],
+            "properties": {
+              "tab1": {
+                "type": "string"
+              },
+              "tab2": {
+                "type": "string"
+              },
+              "tab3": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "image_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          }
         }
       }
-    },
-    "image_url": {
-      "type": "string",
-      "format": "uri",
-      "pattern": "^https?://"
     }
-  },
-  "required": ["id", "name", "overview", "key_facts", "highlights", "tab_content", "image_url"]
+  }
 }
