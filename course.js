@@ -109,3 +109,13 @@ function clearData(){
   });
 
 }
+
+// -------------------------------------------------------------------------------
+// TODO 1: fix same site cookie
+// TODO 2: add 4 more courses
+// TODO 3: create multi currency logic. ( idea: track pound and numbers and replace them with js )
+// TODO 4: make header more pleasant
+// TODO 5: maybe some more paddings
+// TODO 6: Add comments everywhere
+// TODO 7: Add references
+// TODO 8: Make video and word
