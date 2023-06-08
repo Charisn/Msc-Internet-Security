@@ -1,32 +1,28 @@
-// Load the course.json file
-// fetch('course.json')
-//   .then(response => response.json())
-//   .then(data => validateJson(data))
-//   .catch(error => console.error('Error loading course.json:', error));
-
  loadJson("course.json", "courseschema.json")
 
   async function loadJson(jsonPath, schemaPath) {
     try {
-      // Fetch the JSON data and the JSON schema concurrently
-      const [jsonData, schemaData] = await Promise.all([
-        fetch(jsonPath).then((response) => response.json()),
-        fetch(schemaPath).then((response) => response.json())
-      ]);
-  
+      // Fetch the JSON data and the JSON schema
+      const jsonDataPromise = fetch(jsonPath).then((response) => response.json())
+      const schemaDataPromise = fetch(schemaPath).then((response) => response.json())
+
+      const [jsonData, schemaData] = await Promise.all([jsonDataPromise, schemaDataPromise]);
+
       return validateJson(jsonData, schemaData);
     } catch(error){
-      window.alert("Something went wrong.");
+      window.alert("There was an error while reading json file.");
       console.log(error);
       return false;
     }
   }
   
   function validateJson(json, schema) {
+    
     for (let key in json) {
       if (!schema.properties.hasOwnProperty(key)) {
         return false;
       }
+  
       if (Array.isArray(json[key])) {
         for (let i = 0; i < json[key].length; i++) {
           if (!validateJson(json[key][i], schema.properties[key].items)) {
@@ -35,31 +31,58 @@
         }
       }
     }
-    return createCourseTable(json);
-}
+    
+    // JSON object is valid against the schema, call fillCourseData function
+    fillCourseData(json);
+    return true;
+  }
+  
 
 // Create the course table with divs
-function createCourseTable(jsonData) {
+function fillCourseData(jsonData) {
 
-var tableData = '';
-const data = Object.values(jsonData);
-    tableData += '<div class="data-row">';
-    tableData += '<div class="data-cell">' + data[1] + '</div>'; // Name
-    tableData += '<div class="data-cell">' + data[2] + '</div>'; // Overview
-    tableData += '<div class="data-cell">' + data[3] + '</div>'; // Key Facts
-    tableData += '<div class="data-cell">' + data[4] + '</div>'; // Highlights
-    tableData += '<div class="data-cell">' + data[5] + '</div>'; // Content
-    tableData += '<div class="data-cell">' + data[6] + '</div>'; // Image URL
-    tableData += '</div>';
-debugger
-  var dataContainer = document.querySelector('.data');
-  dataContainer.innerHTML = tableData;
-
-  // Append the SVG elements to the respective data cells
-  var svgElements = document.querySelectorAll('.data-cell svg');
-  svgElements.forEach(function(svgElement) {
-    var cell = svgElement.closest('.data-cell');
-    cell.appendChild(svgElement);
-  });
+  const data = Object.values(jsonData);
   
+  var elementName = document.querySelector('.name-data');
+  var elementOverview = document.querySelector('.overview-data');
+  var elementKeyFacts = document.querySelector('.key-facts-data');
+  var elementHighlights = document.querySelector('.highlights-data');
+  var elementContent = document.querySelector('.content-data');
+  var elementImage = document.querySelector('.image-data')
+
+  var divName = document.createElement('div');
+  divName.innerHTML = '<div class="data-cell data-name"><p>' + data[1] + '</p></div>';
+  elementName.appendChild(divName);
+  divName.classList.add('course-data');
+
+  var divOverview = document.createElement('div');
+  divOverview.innerHTML = '<div class="data-cell data-overview">' + data[2] + '</div>';
+  elementOverview.appendChild(divOverview);
+  divOverview.classList.add('course-data');
+
+  var divKeyFacts = document.createElement('div');
+  divKeyFacts.innerHTML = '<div class="data-cell data-key-facts">' + data[3] + '</div>';
+  elementKeyFacts.appendChild(divKeyFacts);
+  divKeyFacts.classList.add('course-data');
+
+  var divHighlights = document.createElement('div');
+  divHighlights.innerHTML = '<div class="data-cell data-highlights">' + data[4] + '</div>';
+  elementHighlights.appendChild(divHighlights);
+  divHighlights.classList.add('course-data');
+
+  var divCOntent = document.createElement('div');  
+  for (var tab in data[5]) {
+    if (data[5].hasOwnProperty(tab)) {
+      console.log(data[5][tab]);
+      divCOntent.innerHTML += data[5][tab];
+    }
+  }
+  elementContent.appendChild(divCOntent);
+  divCOntent.classList.add('course-data');
+
+  var divImage = document.createElement('div');
+  divImage.innerHTML = '<div class="data-cell data-image"><img src="' + data[6] + '"></div>';
+  elementImage.appendChild(divImage);
+  divImage.classList.add('course-data');
+
 }
