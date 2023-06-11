@@ -11,7 +11,7 @@
         "properties": {
           "id": {
             "type": "number",
-            "minimum": 0
+            "minimum": 1
           },
           "name": {
             "description": "Full name of the course.",

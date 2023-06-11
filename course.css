@@ -1,3 +1,7 @@
+
+/* GENERIC */
+/* ========================== */
+
 :root{
     --color: black;
     --header: rgba(0,0,0,0.8);
@@ -7,6 +11,23 @@ body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
 }
+h5 {
+    font-size: clamp(16px, 1vw, 20px);
+}
+a {
+    color: green;
+}
+a:hover {
+    color: goldenrod;
+}
+body.loading {
+    cursor: wait;
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+/* HEADER */
+/* ========================== */
 header {
     width: 100%;
     height: 50px;
@@ -22,7 +43,7 @@ span.currency {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 0 10px;
 }
 .header-container select {
@@ -34,6 +55,7 @@ span.currency {
     border: none;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 }
 .header-container select option {
     background: var(--header);
@@ -42,12 +64,24 @@ span.currency {
 .header-container select option:hover {
     background: green;
 }
-a {
-    color: green;
+.logo {
+    margin-top: 5px;
+    width: 150px;
 }
-a:hover {
-    color: goldenrod;
+.logo svg g{
+    transition: all 0.5s ease-in-out;
 }
+.logo:hover svg g {
+    stroke: goldenrod;
+}
+.currency-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+}
+/* ========================== */
+
 .headers {
     display: flex;
     justify-content: space-between;
@@ -69,6 +103,15 @@ a:hover {
     margin-bottom: 5px;
     box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.06);
     z-index: 1;
+    transition: all 0.5s ease;
+    cursor: default;
+}
+.table-column:hover h2 {
+    color: goldenrod;
+}
+.table-column > h2:hover {
+    background-color: #ddd;
+    opacity: 0.8;
 }
 .course-data {
     height: 500px;
@@ -145,4 +188,44 @@ button#btnTop:hover {
     opacity: 0.7;
     color: goldenrod;
     border-color: goldenrod;
+}
+footer {
+    background: #000;
+    color: #b4b4b4;
+    font-size: .9rem;
+    display: flex;
+    padding: 15px;
+    height: 100px;
+    align-items: center;
+    box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.06);
+}
+footer p {
+    margin: 0;
+}
+svg {
+    height: auto;
+    width: 100%;
+}
+.cls-1 {
+    fill: #fff;
+}
+footer strong, 
+footer h4 {
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+}
+footer .footer__location-address h4 {
+    font-size: 1rem;
+    margin: .25em 0 .15em 0;
+}
+.footer__location {
+    grid-area: address;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.footer__location-logo {
+    max-width: 53px;
 }

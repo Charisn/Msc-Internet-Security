@@ -28,7 +28,7 @@ async function loadJson(jsonPath, schemaPath) {
 // While everybody is using AJV library to do the validation i tried a new way to make the validation with the help of stackoverflow and chatgpt
 // This is a function that makes the validation of json into json schema. 
 function validateJson(json, schema) { // take json and jsonShema as parameters to compare.
-  debugger
+
   // loop over the entire json object
   for (let key in json) { // key is the values of the json file ex: id, name, overview etc.
     if (!schema.properties.hasOwnProperty(key)) { // checks whether the object schema.properties does not have a property with the name specified by the variable key.
@@ -43,13 +43,10 @@ function validateJson(json, schema) { // take json and jsonShema as parameters t
       }
     }
   }
-
   // JSON object is valid against the schema, call fillCourseData function
   fillCourseData(json);
   return true;
 }
-
-
 // This functions is being used to insert data from json into the html.
 function fillCourseData(jsonData) {
 
@@ -68,7 +65,7 @@ function fillCourseData(jsonData) {
   let elementContent = document.querySelector('.content-data'); // repeating the same idea as above
   let elementImage = document.querySelector('.image-data') // repeating the same idea as above
 
- // Creating a new div each time, so every time the function is called, data will be inserted into a new div instead of overwriting the previous data.
+  // Creating a new div each time, so every time the function is called, data will be inserted into a new div instead of overwriting the previous data.
   let divName = document.createElement('div'); // creating the div
   divName.innerHTML = '<div class="data-cell data-name"><p>' + data[1] + '</p></div>'; // inserting the html i want into that new div
   elementName.appendChild(divName); // appending that new div + html into the selected divs i specified above.
@@ -103,84 +100,83 @@ function fillCourseData(jsonData) {
   elementContent.appendChild(divContent); // inserting the newly created div into the selected div
   divContent.classList.add('course-data'); // add the class to it for later ease of use.
 
- // repeating the same procedure with the previous data
+  // repeating the same procedure with the previous data
   let divImage = document.createElement('div');
   divImage.innerHTML = '<div class="data-cell data-image"><img src="' + data[6] + '"></div>';
   elementImage.appendChild(divImage);
   divImage.classList.add('course-data');
 
+  document.body.classList.remove("loading");
 }
 
+let lastModified = null; // set last modified with a null value so i can later set it to current modified date for comparison.
+refreshData();
 // Once this function is called it will be on an infinite loop of calling it self every 4 seconds
 // And every time it is being called, it clears previous data in tables and re creates the table with new data.
 async function refreshData() {
-  try { // try catch to catch any errors
-    clearData(); // This is a function that clears our tables data.
-    await loadJson("course.json", "courseschema.json"); // Call the async function loadJson and wait for it to complete
-  } catch (error) { // try catch to catch any errors
-    console.error('An error occurred:', error); // if error occured, i print it in browsers console.
+  try {    
+    const response = await fetch("course.json");
+    const newLastModified = response.headers.get("Last-Modified");
+    // If the file has been modified since the last fetch
+    if (lastModified != newLastModified) {
+      lastModified = newLastModified;
+      clearData();
+      await loadJson("course.json", "courseschema.json");
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
   }
-  setTimeout(refreshData, 4000); // Then schedule calling this function again in 4 seconds
+  setTimeout(refreshData, 4000);  
 }
 
-// This is a functions that clears my tables data. If called only heading titles will appear. Table's data will be cleared.
+// This is a functions that clears my table's data. If called only heading titles will appear. Table's data will be cleared.
 function clearData() {
-  
   let tableData = document.querySelectorAll(".course-data"); // find all divs there are in dom and inserts it into a variable
   tableData.forEach(function (element) { // since tableData is an array of divs, i create a loop to remove all elements found in my selector above
     element.remove(); // this line calls the remove() method javascript gives us as a tool. This line removes the element.
   });
 }
 
-function convertToCurrency(from_currency, to_currency) {
-  getCurrencyRates(from_currency, to_currency).then((exchange_rate) => {
-
-    const from_symbol = new Intl.NumberFormat('en', { style: 'currency', currency: from_currency })
-      .format(0)
-      .replace(/[\d.,]/g, '')
-      .trim();
-
-    const to_symbol = new Intl.NumberFormat('en', { style: 'currency', currency: to_currency })
-      .format(0)
-      .replace(/[\d.,]/g, '')
-      .trim();
+// This function scans the html inserted from fillCourseData() and replaces old prices and symbols to new price and symbol
+// current currency is retreived from the cookie.
+// convert_currency is retrieved from select option value.
+function convertToCurrency(current_currency, convert_currency) {
+  getCurrencyRates(current_currency, convert_currency).then((exchange_rate) => {
+    const current_symbol = new Intl.NumberFormat('en', { style: 'currency', currency: current_currency }).format(0).replace(/[\d.,]/g, '').trim();
+    const to_symbol = new Intl.NumberFormat('en', { style: 'currency', currency: convert_currency }).format(0).replace(/[\d.,]/g, '').trim();
 
     var data_cell_div = document.getElementsByClassName('course-data');
 
-    for (let i = 0; i < data_cell_div.length; i++) {
+    for (let i = 0; i < data_cell_div.length; i++) { 
       var paragraphs = data_cell_div[i].getElementsByTagName('p');
+      var listItems = data_cell_div[i].getElementsByTagName('li');  // getting all li elements
 
-      for (let j = 0; j < paragraphs.length; j++) {
-        if (paragraphs[j].textContent.includes(from_symbol)) {
-          let regex = new RegExp(`${from_symbol}\\s*([0-9,]+)`, 'g');
-          let beforePrices = paragraphs[j].textContent.match(regex);
+      const contentElements = [...paragraphs, ...listItems];  // combining all 'p' and 'li' elements
 
-          if (beforePrices) {
-            for (let k = 0; k < beforePrices.length; k++) {
-              let beforePrice = parseFloat(beforePrices[k].replace(from_symbol, '').replace(',', ''));
+      for (let j = 0; j < contentElements.length; j++) { 
+        if (contentElements[j].textContent.includes(current_symbol)) { 
+          let regex = new RegExp(`${current_symbol}\\s*([0-9,]+)`, 'g');
+          let beforePrices = contentElements[j].textContent.match(regex); 
 
-              if (!isNaN(beforePrice)) {
-                var afterPrice = beforePrice * exchange_rate;
+          if (beforePrices) { 
+            for (let k = 0; k < beforePrices.length; k++) { 
+              let beforePrice = parseFloat(beforePrices[k].replace(current_symbol, '').replace(',', ''));
+
+              if (!isNaN(beforePrice)) { 
+                var afterPrice = beforePrice * exchange_rate; 
                 let newCurrencyNode = document.createTextNode(" " + to_symbol + afterPrice.toFixed(2) + " ");
 
-                let beforeText = document.evaluate('.//text()[contains(., "' + beforePrices[k] + '")]', paragraphs[j], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                let beforeText = document.evaluate('.//text()[contains(., "' + beforePrices[k] + '")]', contentElements[j], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
-                if (beforeText) {
+                if (beforeText) { 
                   let textContent = beforeText.textContent;
-                  let priceIndex = textContent.indexOf(beforePrices[k]);
+                  let priceIndex = textContent.indexOf(beforePrices[k]); 
 
-                  // Split the original text around the old price
-                  let textBefore = document.createTextNode(textContent.slice(0, priceIndex).trim());
-                  let textAfter = document.createTextNode(textContent.slice(priceIndex + beforePrices[k].length).trim());
+                  let newTextContent = textContent.slice(0, priceIndex).trim() +
+                    " " + to_symbol + Math.round(afterPrice) + " " +
+                    textContent.slice(priceIndex + beforePrices[k].length).trim();
 
-                  // Create a new fragment with the text before the price, the new price, and the text after the price
-                  let newNodes = document.createDocumentFragment();
-                  newNodes.appendChild(textBefore);
-                  newNodes.appendChild(newCurrencyNode);
-                  newNodes.appendChild(textAfter);
-
-                  // Replace the old text node with the new fragment
-                  beforeText.parentNode.replaceChild(newNodes, beforeText);
+                  beforeText.textContent = newTextContent;
                 }
               }
             }
@@ -193,44 +189,48 @@ function convertToCurrency(from_currency, to_currency) {
 
 // I followed instuctions i found from the following api. The documentation is the following which i took their base layout and edit it to my needs.
 // https://apilayer.com/marketplace/exchangerates_data-api?live_demo=show
+async function getCurrencyRates(currency_before, cuyrrency_after) {
 
-async function getCurrencyRates(from_currency, to_currency) {
-
-  try {
-    const myHeaders = new Headers();
-    myHeaders.append("apikey", "ongniIioNKlSWs6Pr29L7eY12yIuAHz6");
+  try { // try catch for error logging.
+    const apiHeaders = new Headers();
+    apiHeaders.append("apikey", "ongniIioNKlSWs6Pr29L7eY12yIuAHz6"); // send api key in header 165/250 requests already done with this key.
 
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
-      headers: myHeaders
+      headers: apiHeaders
     };
-
+    // current date calls a function declared below that returns a string of the current date with the format documentation wanted.
     const current_date = getCurrentDateFormatted();
-    const response = await fetch(`https://api.apilayer.com/exchangerates_data/fluctuation?start_date=${current_date}&end_date=${current_date}&base=${from_currency}&symbols=GBP,USD,EUR`, requestOptions);
-    const result = await response.json();
+
+    // request into the url below, with request options and dynamic settings set during the function call. 
+    const response = await fetch(`https://api.apilayer.com/exchangerates_data/fluctuation?start_date=${current_date}&end_date=${current_date}&base=${currency_before}&symbols=GBP,USD,EUR`, requestOptions);
+    const currency_result = await response.json();
 
     // set the cookie as the current new currency so the next time we change currency rates, we know what the current currency is to make the compare.
-    setCurrencyCookie(to_currency);
-    return result.rates[to_currency].start_rate;
+    setCurrencyCookie(cuyrrency_after);
+    
+    // return the rate
+    return currency_result.rates[cuyrrency_after].start_rate;
 
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
+// the following link inspired me with the end result of the function.
 // https://www.freecodecamp.org/news/javascript-date-now-how-to-get-the-current-date-in-javascript/
 function getCurrentDateFormatted() {
-  const date = new Date();
+  const current_date = new Date(); // create a date object 
 
-  const year = date.getFullYear();
+  const current_year = current_date.getFullYear(); // get the current full year 
 
   // getMonth() returns month index starting from 0 (January), so i add +1
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const current_month = (current_date.getMonth() + 1).toString().padStart(2, '0');
+  // gets date object, makes it a string and padStart converts numbers from 2 to 02 given the arguements below.
+  const current_day = current_date.getDate().toString().padStart(2, '0');
 
-  const day = date.getDate().toString().padStart(2, '0');
-
-  return `${year}-${month}-${day}`;
+  return `${current_year}-${current_month}-${current_day}`;
 }
 
 // This cookie code i took from this website. Author is me.
@@ -241,50 +241,65 @@ function setCurrencyCookie(cookieValue) {
   document.cookie = `currency=${JSON.stringify(cookieValue)}; expires=${expires}`;
 }
 
-// Read the cookie
-function getCookie(name) {
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith(name + '=')) {
-      const value = cookie.substring((name + '=').length);
-      try {
-        return JSON.parse(decodeURIComponent(value));
-      } catch (e) {
-        return decodeURIComponent(value);
-      }
-    }
-  }
-  return null;
-}
-
 // CODE FROM https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-// Get the button:
-let mybutton = document.getElementById("btnTop");
+let btnTop = document.getElementById("btnTop");
+// When scrolling from px 20px and below, show the button
+window.onscroll = function () {
+  showButton()
+};
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+function showButton() {
+  if (document.body.scrollTop > 20
+    || document.documentElement.scrollTop > 20) {
+    btnTop.style.display = "block";
   } else {
-    mybutton.style.display = "none";
+    btnTop.style.display = "none";
   }
 }
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  document.documentElement.scrollTop = 0;
 }
 
+// This cookie code i took from this website. Author is me.
+// https://kritharis.digital4u-eshops.gr/
+// function that reads a cookie given its name
+function getCookie(name) {
+  // split method separates the cookie string at each semicolon (';').
+  const cookies = document.cookie.split(';');
+  // A for loop that goes through each cookie in cookies array
+  for (let i = 0; i < cookies.length; i++) {    
+    // This line trims leading and trailing whitespace from the current cookie (cookies[i])
+    const cookie = cookies[i].trim();
+    // 'startsWith' checks if the current cookie string begins with the 'name' parameter followed by an equals sign ('=')
+    // If it does, it means we've found the cookie we're looking for
+    if (cookie.startsWith(name + '=')) {
+      // This line gets the value of the found cookie.
+      // It does this by creating a substring of 'cookie' that starts from the end of the 'name' parameter, effectively cutting out the name of the cookie.
+      const value = cookie.substring((name + '=').length);      
+      try {
+        // This line tries to parse the value as JSON and decode it from URI format.
+        // If successful, it returns the parsed and decoded value.
+        // This would be useful if the cookie value is a complex data type that's been JSON.stringified and then URI encoded
+        return JSON.parse(decodeURIComponent(value));
+      } catch (e) {
+        // If parsing as JSON and decoding fails, it decodes the value from URI format and then returns it.
+        // This would be the case if the cookie value is a simple data type like a string or number
+        return decodeURIComponent(value);
+      }
+    }
+  }
+
+  // If the 'name' parameter doesn't match any cookie names in the document, the function returns null
+  return null;
+}
 // -------------------------------------------------------------------------------
-// TODO 1: fix same site cookie - MAYBE LAST
-// TODO 2: add 4 more courses
+// TODO 1: fix same site cookie - MAYBE LAST/NOT
+// TODO 2: add 4 more courses - OK
 // TODO 3: create multi currency logic. ( idea: track pound and numbers and replace them with js ) - OK
 // TODO 4: make header more pleasant- OK { COULD ADD TEXT ON LEFT }
 // TODO 5: maybe some more paddings - OK
-// TODO 6: Add comments everywhere - UFF
-// TODO 7: Add references
+// TODO 6: Add comments everywhere - OK
+// TODO 7: Add references - OK
 // TODO 8: Make video and word
