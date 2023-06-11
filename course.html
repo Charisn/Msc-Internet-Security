@@ -11,9 +11,12 @@
 <body>
   <header>
     <div class="header-container">
-      <button style="margin-top: 10px;">
-        Change Currency
-      </button>
+      <span class="currency">Currency: </span>
+      <select onchange="convertToCurrency((getCookie('currency')),this.value)">
+        <option value="GBP">GBP</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
     </div>
   </header>
   <div id="course-table" class="course-table">
@@ -55,6 +58,7 @@
         </div>
       </div>
     </div>
+    <button onclick="topFunction()" id="btnTop" title="Go to top"> &uarr; </button>
   </div>
   <script src="course.js"></script>
 </script>
