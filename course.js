@@ -16,6 +16,8 @@ async function loadJson(jsonPath, schemaPath) {
     //  This is usefull since i cannot continue with return validating 2 promises and will end up in an error.
     const [jsonData, schemaData] = await Promise.all([jsonDataPromise, schemaDataPromise]);
 
+    // i could also make a new function instead of re-setting the cookie to default every timg, that reads the current cookie and delivers content with 
+    // the previously selected currency, or read the location of the user to deliver him instantly his preffered currency but i decided to keep it simple. 
     setCurrencyCookie('GBP'); // the first load contains gbp currency, so i am setting a cookie with value gbp and use it accordingly in currency exchange.
     return validateJson(jsonData, schemaData);  // function returns a call of an other function with parameters 2 json objects
   } catch (error) {
@@ -35,14 +37,18 @@ function validateJson(json, schema) { // take json and jsonShema as parameters t
       return false;
     }
 
-    if (Array.isArray(json[key])) {
-      for (let i = 0; i < json[key].length; i++) {
+    if (Array.isArray(json[key])) { // Check if the value associated with the current key in the json is an array
+      for (let i = 0; i < json[key].length; i++) { // Loop through array
+
+         // call validateJson to validate each element in the array
+        // Pass the current array element as the json parameter and schema for that array as the schema parameter
         if (!validateJson(json[key][i], schema.properties[key].items)) {
-          return false;
+          return false;  // If the loop completes without returning false, it means all properties in the JSON object were validated successfully.
         }
       }
     }
   }
+  // and if until this point it does not satisfy any of the above ifs, means that it is validated and we can now use that json 'safely'.
   // JSON object is valid against the schema, call fillCourseData function
   fillCourseData(json);
   return true;
@@ -110,17 +116,19 @@ function fillCourseData(jsonData) {
 }
 
 let lastModified = null; // set last modified with a null value so i can later set it to current modified date for comparison.
-refreshData();
+refreshData(); // call the function
+
 // Once this function is called it will be on an infinite loop of calling it self every 4 seconds
 // And every time it is being called, it clears previous data in tables and re creates the table with new data.
 async function refreshData() {
-  try {    
-    const response = await fetch("course.json");
-    const newLastModified = response.headers.get("Last-Modified");
+  try { // try catch any errors
+    const response = await fetch("course.json"); // get the file
+    // https://developer.mozilla.org/en-US/docs/Web/API/Headers
+    const newLastModified = response.headers.get("Last-Modified"); // request header last-modified
     // If the file has been modified since the last fetch
-    if (lastModified != newLastModified) {
-      lastModified = newLastModified;
-      clearData();
+    if (lastModified != newLastModified) { // the first time we always refresh once to set lastModified and then we have a comparison
+      lastModified = newLastModified; // if it is modified we need to update the variable we are storing the date
+      clearData(); // this is a function that is declared below, that clears all data before re-inserts them
       await loadJson("course.json", "courseschema.json");
     }
   } catch (error) {
@@ -142,40 +150,50 @@ function clearData() {
 // convert_currency is retrieved from select option value.
 function convertToCurrency(current_currency, convert_currency) {
   getCurrencyRates(current_currency, convert_currency).then((exchange_rate) => {
+    // I used NumberFormat object to create a currency symbol for the current currency. I could also create a function with an array doing the same thing
+    // calling it with USD parameter and returning $, but this way is a more professional and covers all possible combinations, not just the 3 that were asked
     const current_symbol = new Intl.NumberFormat('en', { style: 'currency', currency: current_currency }).format(0).replace(/[\d.,]/g, '').trim();
     const to_symbol = new Intl.NumberFormat('en', { style: 'currency', currency: convert_currency }).format(0).replace(/[\d.,]/g, '').trim();
-
+    
+    // Grab all the elements with the class name 'course-data'.
     var data_cell_div = document.getElementsByClassName('course-data');
 
-    for (let i = 0; i < data_cell_div.length; i++) { 
-      var paragraphs = data_cell_div[i].getElementsByTagName('p');
-      var listItems = data_cell_div[i].getElementsByTagName('li');  // getting all li elements
+    for (let i = 0; i < data_cell_div.length; i++) {  //loop through each data cell.
+      var paragraphs = data_cell_div[i].getElementsByTagName('p'); //  get all p elements found
+      var listItems = data_cell_div[i].getElementsByTagName('li');  // get all li elements found
 
       const contentElements = [...paragraphs, ...listItems];  // combining all 'p' and 'li' elements
 
-      for (let j = 0; j < contentElements.length; j++) { 
-        if (contentElements[j].textContent.includes(current_symbol)) { 
-          let regex = new RegExp(`${current_symbol}\\s*([0-9,]+)`, 'g');
-          let beforePrices = contentElements[j].textContent.match(regex); 
+      for (let j = 0; j < contentElements.length; j++) { // Start of a loop through each content element.
+        if (contentElements[j].textContent.includes(current_symbol)) { // // If the content of the current element includes the current symbol
+          // escaping dollar symbol since it is used as a string literal in regex and with \\ it is being escaped
+          // This is being done because after selecting USD as current currency i could not find with current regex the prices.
+          let escapedSymbol = current_symbol === '$' ? '\\$' : current_symbol;
+          // i use regex to find the prices that start with the current symbol ending in a number
+          let regex = new RegExp(`${escapedSymbol}\\s*([0-9,]+)`, 'g');
+          let beforePrices = contentElements[j].textContent.match(regex); // collect all the prices that match the regex.
 
-          if (beforePrices) { 
-            for (let k = 0; k < beforePrices.length; k++) { 
+          if (beforePrices) { // If there are any prices
+            for (let k = 0; k < beforePrices.length; k++) {  // Start of a loop through each price.
+              // This line removes the current_symbol and any commas from the price, then converts it to a number.
               let beforePrice = parseFloat(beforePrices[k].replace(current_symbol, '').replace(',', ''));
-
-              if (!isNaN(beforePrice)) { 
+              if (!isNaN(beforePrice)) { // If the price is a valid number
+                // Calculates converted price by multiplying the current price by the exchange rate.
                 var afterPrice = beforePrice * exchange_rate; 
-                let newCurrencyNode = document.createTextNode(" " + to_symbol + afterPrice.toFixed(2) + " ");
+                // This line creates a new text node with the new currency symbol and the converted price.
+                // let newCurrencyNode = document.createTextNode(" " + to_symbol + afterPrice.toFixed(2) + " ");
 
+                // Find the exact text node that contains the current price.
                 let beforeText = document.evaluate('.//text()[contains(., "' + beforePrices[k] + '")]', contentElements[j], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
-                if (beforeText) { 
-                  let textContent = beforeText.textContent;
-                  let priceIndex = textContent.indexOf(beforePrices[k]); 
-
+                if (beforeText) { // If the text node was found
+                  let textContent = beforeText.textContent; // Get the content of the text node.
+                  let priceIndex = textContent.indexOf(beforePrices[k]); //Find the index at which the price starts in the text content.
+                  // Build the new text content by taking everything before the price, adding the new currency and price, and then everything after the price.
                   let newTextContent = textContent.slice(0, priceIndex).trim() +
                     " " + to_symbol + Math.round(afterPrice) + " " +
                     textContent.slice(priceIndex + beforePrices[k].length).trim();
-
+                  // Replace the old text content with the new text content.
                   beforeText.textContent = newTextContent;
                 }
               }
@@ -193,7 +211,7 @@ async function getCurrencyRates(currency_before, cuyrrency_after) {
 
   try { // try catch for error logging.
     const apiHeaders = new Headers();
-    apiHeaders.append("apikey", "ongniIioNKlSWs6Pr29L7eY12yIuAHz6"); // send api key in header 165/250 requests already done with this key.
+    apiHeaders.append("apikey", "ongniIioNKlSWs6Pr29L7eY12yIuAHz6"); // send api key in header 180/250 requests already done with this key.
 
     const requestOptions = {
       method: 'GET',
@@ -209,7 +227,7 @@ async function getCurrencyRates(currency_before, cuyrrency_after) {
 
     // set the cookie as the current new currency so the next time we change currency rates, we know what the current currency is to make the compare.
     setCurrencyCookie(cuyrrency_after);
-    
+
     // return the rate
     return currency_result.rates[cuyrrency_after].start_rate;
 
@@ -262,8 +280,9 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-// This cookie code i took from this website. Author is me.
+// This cookie code i took from this website.
 // https://kritharis.digital4u-eshops.gr/
+// Author is ME in march of 2023.
 // function that reads a cookie given its name
 function getCookie(name) {
   // split method separates the cookie string at each semicolon (';').
@@ -303,3 +322,5 @@ function getCookie(name) {
 // TODO 6: Add comments everywhere - OK
 // TODO 7: Add references - OK
 // TODO 8: Make video and word
+// TODO 9: Write all the restructures i have made in the code into WORD. + Difficulties.
+// TODO: 10: Try to make $ into html encode before
