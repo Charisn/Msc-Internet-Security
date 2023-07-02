@@ -1,13 +1,12 @@
 <?php
 require_once('../config.php');
-include('/course_table.html');
 
 session_start();
 
 // Check if the user is not logged in
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     // User is not logged in, redirect them to the login page
-    header('Location: ' .LOGIN.'/login.php');
+    header('Location: ' . LOGIN . '/login.php');
     exit();
 }
 
@@ -28,6 +27,32 @@ try {
     // Display the error message to the user (optional)
     echo $errorMessage;
 }
-$conn = null; 
+$conn = null;
 
-?>
+include HTML . '/header.php'; ?>
+
+<div>Insert New Course</div><br>
+<div>
+    <form action="courses.php" method="get">
+        <label for="name">Name: </label>
+        <input type="text"  id="name" name="name"><br>
+
+        <label for="name">Overview: </label>
+        <input type="text" id="overview" name="overview"><br>
+
+        <label for="name">Key Facts: </label>
+        <input type="text" id="key_facts" name="key_facts"><br>
+
+        <label for="name">Highlights: </label>
+        <input type="text" id="highlights" name="highlights"><br>
+
+        <label for="modules[]">List of Content: </label><br>
+        <input type="text" id="modules[]" name="modules[]"><br>
+        <input type="text" id="modules[]" name="modules[]"><br>
+        <input type="text" id="modules[]" name="modules[]"><br><br>
+
+        <input type="submit">
+    </form>
+</div>
+
+<?php include HTML . '/footer.php'; ?>

@@ -1,8 +1,10 @@
 <?php
 
-define('DIR', '/final');
+define('DIR', 'C:\xampp\htdocs\final');
+
 define('LOGIN', ''.DIR.'/login');
 define('COURSE', ''.DIR.'/courses');
+define('HTML', ''.DIR.'/elements');
 
 // DATABASE CREDENTIALS
 define('HOSTNAME', 'localhost');
