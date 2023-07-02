@@ -134,7 +134,7 @@ async function refreshData() {
   } catch (error) {
     console.error('An error occurred:', error);
   }
-  setTimeout(refreshData, 4000);  
+  setTimeout(refreshData, 4000);
 }
 
 // This is a functions that clears my table's data. If called only heading titles will appear. Table's data will be cleared.
@@ -165,8 +165,8 @@ function convertToCurrency(current_currency, convert_currency) {
       const contentElements = [...paragraphs, ...listItems];  // combining all 'p' and 'li' elements
 
       for (let j = 0; j < contentElements.length; j++) { // Start of a loop through each content element.
-        if (contentElements[j].textContent.includes(current_symbol)) { // // If the content of the current element includes the current symbol
-          // escaping dollar symbol since it is used as a string literal in regex and with \\ it is being escaped
+        if (contentElements[j].textContent.includes(current_symbol)) { // If the content of the current element includes the current symbol
+          // escaping dollar symbol since it is used as a string literal in regex and with, it is being escaped
           // This is being done because after selecting USD as current currency i could not find with current regex the prices.
           let escapedSymbol = current_symbol === '$' ? '\\$' : current_symbol;
           // i use regex to find the prices that start with the current symbol ending in a number
@@ -180,19 +180,28 @@ function convertToCurrency(current_currency, convert_currency) {
               if (!isNaN(beforePrice)) { // If the price is a valid number
                 // Calculates converted price by multiplying the current price by the exchange rate.
                 var afterPrice = beforePrice * exchange_rate; 
-                // This line creates a new text node with the new currency symbol and the converted price.
-                // let newCurrencyNode = document.createTextNode(" " + to_symbol + afterPrice.toFixed(2) + " ");
 
+                // This line creates a new text node with the new currency symbol and the converted price.
                 // Find the exact text node that contains the current price.
-                let beforeText = document.evaluate('.//text()[contains(., "' + beforePrices[k] + '")]', contentElements[j], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                let beforeText = document.evaluate // evaluate of an XPath expression string and return something
+                ('.//text()[contains(., "' + beforePrices[k] + '")]', // the expression for the evaluate -> check if the value of node contains the price
+                contentElements[j], // xpath expression will be compared to this 
+                null, // name space resolver - i dont have a namespace
+                XPathResult.FIRST_ORDERED_NODE_TYPE, // return the first node
+                null // optional arguement no result object is provided, so a new one is created
+                ).singleNodeValue; // property that returns a single note
 
                 if (beforeText) { // If the text node was found
                   let textContent = beforeText.textContent; // Get the content of the text node.
                   let priceIndex = textContent.indexOf(beforePrices[k]); //Find the index at which the price starts in the text content.
                   // Build the new text content by taking everything before the price, adding the new currency and price, and then everything after the price.
-                  let newTextContent = textContent.slice(0, priceIndex).trim() +
-                    " " + to_symbol + Math.round(afterPrice) + " " +
-                    textContent.slice(priceIndex + beforePrices[k].length).trim();
+                  let newTextContent = 
+                  textContent.slice(0, priceIndex).trim() 
+                  + " " 
+                  + to_symbol 
+                  + Math.round(afterPrice) 
+                  + " " 
+                  + textContent.slice(priceIndex + beforePrices[k].length).trim();
                   // Replace the old text content with the new text content.
                   beforeText.textContent = newTextContent;
                 }
@@ -282,7 +291,7 @@ function topFunction() {
 
 // This cookie code i took from this website.
 // https://kritharis.digital4u-eshops.gr/
-// Author is ME in march of 2023.
+// Author is me in march of 2023.
 // function that reads a cookie given its name
 function getCookie(name) {
   // split method separates the cookie string at each semicolon (';').
@@ -323,4 +332,4 @@ function getCookie(name) {
 // TODO 7: Add references - OK
 // TODO 8: Make video and word
 // TODO 9: Write all the restructures i have made in the code into WORD. + Difficulties.
-// TODO: 10: Try to make $ into html encode before
+// TODO: 10: Try to make $ into html encode before - OK
