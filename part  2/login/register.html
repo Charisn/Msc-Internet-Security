@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Register</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to right, #888888, #333333);
+    }
+
+    .container {
+      padding: 16px;
+      background-color: white;
+    }
+
+    h1 {
+      color: white;
+      font-size: 56px;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=email] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      background: transparent;
+      border-radius: 25px;
+      border: solid 1px white;
+      color: white;
+      text-align: center;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    .registerbtn {
+      background: transparent;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      cursor: pointer;
+      opacity: 0.9;
+      width: 150px;
+      border-radius: 25px;
+      border: solid 1px white;
+      transition: all 0.5s;
+      animation: btnanimation 2s infinite;
+    }
+
+    @keyframes btnanimation {
+      0% {
+        border-color: rgba(255, 255, 255, 0.9);
+      }
+
+      50% {
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      100% {
+        border-color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+
+    .registerbtn:hover {
+      background: white;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .credentials p {
+      color: azure;
+    }
+
+    .credentials a {
+      color: darkkhaki;
+    }
+
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    .username,
+    .password,
+    .email,
+    .verify-email {
+      max-width: 300px;
+      margin: auto;
+    }
+
+    .login-main {
+      display: flex;
+      gap: 20px;
+      flex-direction: column-reverse;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.3);
+      max-width: 40%;
+      width: 700px;
+      margin: auto;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 5%;
+      padding: 30px;
+    }
+
+    @media(max-width: 1366px) {
+      .container {
+        width: 80%;
+        max-width: 80%;
+      }
+
+      .container h1 {
+        font-size: 46px;
+      }
+    }
+
+    input::placeholder {
+      text-align: center;
+      color: white;
+    }
+
+    input:focus {
+      background: transparent !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <form action="register.php" method="post">
+      <div class="container">
+        <h1>Register</h1>
+        <hr>
+        <div class="login-main">
+          <div class="credentials">
+            <div class="username">
+              <input type="text" placeholder="Username" name="username" id="username" required>
+            </div>
+            <div class="email">
+              <input type="email" placeholder="Email" name="email" id="email" required>
+            </div>
+
+            <div class="verify-email">
+              <input type="email" placeholder="Verify Email" name="verify_email" id="verify_email" required>
+              <span id="email-error" style="color: red; display: none;">Emails do not match</span>
+            </div>
+
+            <div class="password">
+              <input type="password" placeholder="Password" name="password" id="password" required>
+            </div>
+
+            <button type="submit" class="registerbtn">Register</button>
+          </div>
+
+        </div>
+        <hr>
+      </div>
+
+    </form>
+  </div>
+  <script>
+    const emailInput = document.getElementById('email');
+    const verifyEmailInput = document.getElementById('verify_email');
+    const emailError = document.getElementById('email-error');
+    const registerButton = document.querySelector('.registerbtn');
+
+    function validateEmails() {
+      if (emailInput.value !== verifyEmailInput.value) {
+        emailError.style.display = 'inline-block';
+        registerButton.style.display = 'none';
+      } else {
+        emailError.style.display = 'none';
+        registerButton.style.display = 'inline-block';
+      }
+    }
+
+    emailInput.addEventListener('input', validateEmails);
+    verifyEmailInput.addEventListener('input', validateEmails);
+  </script>
+
+</body>
+
+</html>

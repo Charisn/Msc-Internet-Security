@@ -2,6 +2,7 @@
 // Database connection settings
 require_once('config.php');
 
+// This php script was used to mass insert the data used in part-1 into the tables.
 $jsonData = '{
   "courses": [
     {
