@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
     
     if (selectAllCheckbox) {
         selectAllCheckbox.addEventListener('click', function(e) {
-            var checkboxes = document.getElementsByClassName('select-courses');
+            var found_checkboxes = document.getElementsByClassName('select-courses');
             var chartCheckboxes = document.getElementsByClassName('select-charts');
             
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = e.target.checked;
+            for (var i = 0; i < found_checkboxes.length; i++) {
+                found_checkboxes[i].checked = e.target.checked;
                 chartCheckboxes[i].checked = e.target.checked;
             }
         });
@@ -46,8 +46,8 @@ function getRandomColors(length) {
 
   function checkSelection(event) {
     // Check if any checkboxes are selected
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    if (checkboxes.length === 0) {
+    var found_checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    if (found_checkboxes.length === 0) {
       // Prevent form submission
       event.preventDefault();
       // Display error message

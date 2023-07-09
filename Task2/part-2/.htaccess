@@ -1,0 +1,5 @@
+Header set X-Robots-Tag "noindex, nofollow"
+
+order deny,allow
+deny from all
+allow from 79.107.174.199

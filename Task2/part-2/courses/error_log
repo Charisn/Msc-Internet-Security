@@ -1,0 +1,1 @@
+[09-Jul-2023 10:36:18 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nikolaidis/public_html/csym019/part-2/courses/course_new.php:83) in /home/nikolaidis/public_html/csym019/part-2/courses/course_new.php on line 84

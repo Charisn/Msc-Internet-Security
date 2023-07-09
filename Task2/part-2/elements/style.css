@@ -203,11 +203,11 @@ form#add_name .form-container .form-inside-container {
     gap: 25px;
 }
 
-.form-group {
+.goup-inputs {
     white-space: nowrap;
 }
 
-.form-inside-container .form-group label {
+.form-inside-container .goup-inputs label {
     width: 100px;
     display: inline-block;
 }
@@ -255,7 +255,7 @@ button:hover,
     border-bottom: solid 1px #ddd;
     min-height: 100px;
 }
-.course-group .form-group {
+.course-group .goup-inputs {
     flex-direction: column;
     align-items: start;
     width: 100%;
@@ -281,7 +281,7 @@ button:hover,
     border: none;
     border-bottom: solid 1px black;
 }
-.form-group label{
+.goup-inputs label{
     text-transform: uppercase;
     font-weight: bold;
 }
