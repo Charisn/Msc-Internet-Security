@@ -44,18 +44,26 @@ if (isset($_POST['view_charts']) && isset($_POST['chart_course_ids'])) {
         echo "</div>"; // End of course-description div
         echo "</div>"; // End of course-details div
 
-        // Fetch module credits for the pie chart
-        $creditsQuery = "SELECT credits FROM csym_modules WHERE course_id = $courseId"; // Query to fetch module credits
+         $creditsQuery = "SELECT credits FROM csym_modules WHERE course_id = $courseId"; // Query to fetch module credits
         $creditsResult = $conn->query($creditsQuery); // Execute the credits query
-
+    
         $creditsData = array(); // Initialize an array to store the module credits
-
+        $moduleNames = array(); // Initialize an array to store the module names
+    
         while ($creditsRow = $creditsResult->fetch_assoc()) {
             $creditsData[] = $creditsRow['credits']; // Add the module credits to the array
         }
-
+    
+        // Fetch module names for the pie chart
+        $namesQuery = "SELECT name FROM csym_modules WHERE course_id = $courseId"; // Query to fetch module names
+        $namesResult = $conn->query($namesQuery); // Execute the names query
+    
+        while ($namesRow = $namesResult->fetch_assoc()) {
+            $moduleNames[] = $namesRow['name']; // Add the module name to the array
+        }
+    
         // Generate labels and data for the chart
-        $labels = array(); // Initialize labels array
+        $labels = $moduleNames; // Assign moduleNames as the labels array
         $data = $creditsData; // Assign creditsData as the data array
 
         echo "<div class=\"course-pie\">"; // Output the opening tag for the course pie container
@@ -67,7 +75,7 @@ if (isset($_POST['view_charts']) && isset($_POST['chart_course_ids'])) {
         echo "var chart = new Chart(ctx, {"; // Create a new Chart object
         echo "  type: 'pie',"; // Set the chart type to pie
         echo "  data: {"; // Set the chart data
-        echo "    labels: " . json_encode($labels) . ","; // Set the chart labels
+         echo "    labels: " . json_encode($labels) . ","; // Set the chart labels
         echo "    datasets: [{"; // Set the chart datasets
         echo "      data: " . json_encode($data) . ","; // Set the chart data
         echo "      backgroundColor: getRandomColors(" . count($data) . ")"; // Set the chart background colors
@@ -113,7 +121,7 @@ if (isset($_POST['view_charts']) && isset($_POST['chart_course_ids'])) {
             $courseNames[] = $courseName; // Add course name to array
             $courseCredits[] = $moduleCredits; // Add module credits to array
         }
-
+        
         // Stacked scale chart
         echo "<div class=\"stacked-scale\">"; // Output the opening tag for the stacked scale chart container
         echo "<canvas id=\"stackedScaleChart\"></canvas>"; // Output the canvas element for the stacked scale chart
@@ -125,18 +133,36 @@ if (isset($_POST['view_charts']) && isset($_POST['chart_course_ids'])) {
         echo "    labels: " . json_encode($courseNames) . ","; // Set the chart labels
         echo "    datasets: ["; // Start of datasets
 
-        // Generate dataset for each course
-        for ($i = 0; $i < count($courseCredits); $i++) {
-            echo "{"; // Start of dataset
-            echo "  label: " . json_encode($courseNames[$i]) . ","; // Set the dataset label
-            echo "  data: " . json_encode($courseCredits[$i]) . ","; // Set the dataset data
-            echo "  backgroundColor: getRandomColors(" . count($courseCredits[$i]) . ")"; // Set the dataset background color
-            echo "}"; // End of dataset
-
-            if ($i < count($courseCredits) - 1) {
-                echo ","; // Add a comma if it's not the last dataset
+        foreach ($chartCourseIds as $courseId) {
+            $moduleCreditsQuery = "SELECT credits FROM csym_modules WHERE course_id = $courseId";
+            $moduleCreditsResult = $conn->query($moduleCreditsQuery);
+            
+            $moduleCredits = array();
+            while ($creditsRow = $moduleCreditsResult->fetch_assoc()) {
+                $moduleCredits[] = $creditsRow['credits'];
+            }
+    
+            // Start of dataset
+            echo "{";
+            
+            // Set the dataset label
+            echo "  label: " . json_encode($courseName) . ",";
+            
+            // Set the dataset data
+            echo "  data: " . json_encode($moduleCredits) . ",";
+            
+            // Set the dataset background color
+            echo "  backgroundColor: getRandomColors(" . count($moduleCredits) . ")";
+            
+            // End of dataset
+            echo "}"; 
+    
+            // Add a comma if it's not the last dataset
+            if ($courseId !== end($chartCourseIds)) {
+                echo ","; 
             }
         }
+
 
         echo "    ]"; // End of datasets
         echo "  },"; // End of data

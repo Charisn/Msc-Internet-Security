@@ -96,6 +96,7 @@ function getMergedTableDataAsHtml($conn) // Pass the connection as a parameter
     // if there are courses to show
     if ($result->num_rows > 0) {
         // create headers.
+        
         echo "<div class=\"table-container\">";
         echo "<table class=\"merged-table\" border='1' style=\"max-height: 400px; overflow: auto;\">";
         echo "<tr>";
@@ -112,8 +113,10 @@ function getMergedTableDataAsHtml($conn) // Pass the connection as a parameter
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>";
-            // i have 2 checkboxes.  1 for delete and 1 for charts. I did this because i had issues at first posting course array ids. 
+            // I have 2 checkboxes.  1 for delete and 1 for charts. I did this because i had issues at first posting course array ids.
             // Later solved it with an other way but decided not to reconstruct this part. I use javascript to link these 2. When checking select-courses, select-charts is selected aswell.
+            // It is not a bet practise. Just a quick solution i worked on. A better practise would be to only have 1 set of checkboxes for each course and each box would populate a hidden input with the course ID.
+            // Then i would retrieve the array of IDs from that input isntead of each individual checkbox.
             echo '<input type="checkbox" class="select-courses" name="course_ids[]" value="' . $row['course_id'] . '">'; // Add a checkbox for selecting the course to delete
             echo '<input type="checkbox" class="select-charts" name="chart_course_ids[]" value="' . $row['course_id'] . '" style="display: none;">'; // Add a hidden checkbox for selecting the course for charts
             echo "</td>";

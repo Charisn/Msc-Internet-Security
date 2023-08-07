@@ -1,0 +1,86 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AddBillForm",
+            "request": "launch",
+            "mainClass": "AddBillForm",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "AnnualUsageForm",
+            "request": "launch",
+            "mainClass": "AnnualUsageForm",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "EditBillForm",
+            "request": "launch",
+            "mainClass": "EditBillForm",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "AddCustomerForm",
+            "request": "launch",
+            "mainClass": "AddCustomerForm",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "LoginForm",
+            "request": "launch",
+            "mainClass": "LoginForm",
+            "projectName": "MainAssessment_4067519c"
+        },
+        {
+            "type": "java",
+            "name": "CustomerList",
+            "request": "launch",
+            "mainClass": "CustomerList",
+            "projectName": "MainAssessment_4067519c"
+        },
+        {
+            "type": "java",
+            "name": "AddCustomer",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Charis/Desktop/openjfx-11.0.1_windows-x64_bin-sdk/javafx-sdk-11.0.1/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AddCustomer",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "BillingForm",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Charis/Desktop/openjfx-11.0.1_windows-x64_bin-sdk/javafx-sdk-11.0.1/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "BillingForm",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "CustomerList",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Charis/Desktop/openjfx-11.0.1_windows-x64_bin-sdk/javafx-sdk-11.0.1/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "CustomerList",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "LoginForm",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Charis/Desktop/openjfx-11.0.1_windows-x64_bin-sdk/javafx-sdk-11.0.1/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "LoginForm",
+            "projectName": "MainAssessment_e56339d3"
+        },
+        {
+            "type": "java",
+            "name": "Run with AppMap",
+            "request": "launch",
+            "mainClass": "",
+            "vmArgs": "-javaagent:${userHome}\\.appmap\\lib\\java\\appmap.jar"
+        }
+    ]
+}

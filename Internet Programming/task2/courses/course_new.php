@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 // Include the configuration file
 require_once('../config.php');
 
@@ -119,31 +121,31 @@ include '../elements/header.php';
                                 </div>
                             </div>
 
-<div class="course-group">
-    <div class="goup-inputs course-content">
-        <label>Course Content</label>
-        <div id="course_content">
-            <div class="content_row">
-                <input type="text" name="tab_name[]" class="custom-input" placeholder="Course Name">
-                <textarea name="tab_content[]" class="custom-textarea" placeholder="Course Content"></textarea>
-                <button type="button" class="remove_content_btn">Remove</button>
-            </div>
-        </div>
-        <button type="button" class="add_content_btn">Add More Content</button>
-    </div>
-
-    <div class="goup-inputs modules">
-        <label>Modules</label>
-        <div id="course_modules">
-            <div class="module_row">
-                <input type="text" name="module_name[]" class="custom-input" placeholder="Module Name">
-                <input type="number" name="module_credits[]" class="custom-input" placeholder="Module Credits" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                <button type="button" class="remove_module_btn">Remove</button>
-            </div>
-        </div>
-        <button type="button" class="add_module_btn">Add More Modules</button>
-    </div>
-</div>
+                            <div class="course-group">
+                                <div class="goup-inputs course-content">
+                                    <label>Course Content</label>
+                                    <div id="course_content">
+                                        <div class="content_row">
+                                            <input type="text" name="tab_name[]" class="custom-input" placeholder="Course Name">
+                                            <textarea name="tab_content[]" class="custom-textarea" placeholder="Course Content"></textarea>
+                                            <button type="button" class="remove_content_btn">Remove</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="add_content_btn">Add More Content</button>
+                                </div>
+                            
+                                <div class="goup-inputs modules">
+                                    <label>Modules</label>
+                                    <div id="course_modules">
+                                        <div class="module_row">
+                                            <input type="text" name="module_name[]" class="custom-input" placeholder="Module Name">
+                                            <input type="number" name="module_credits[]" class="custom-input" placeholder="Module Credits" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                            <button type="button" class="remove_module_btn">Remove</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="add_module_btn">Add More Modules</button>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="buttons button-submit-new">
