@@ -73,8 +73,6 @@ These projects were completed as part of the MSc program in Internet Security. S
 ---
 
 ## Contact
-For any inquiries, please contact [your email or GitHub profile link].
+For any inquiries, please contact [ncharis97@gmail.com].
 
 ---
-
-**Note:** This README was automatically generated to provide a clear and organized overview of the projects contained in this repository.
