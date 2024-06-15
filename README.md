@@ -19,7 +19,7 @@ This project involved designing a comprehensive network for a company with appro
 - HSRP
 - ACL
 
-**License:** [MIT License](Computer Networks (CPT Design)/LICENSE.txt)
+**License:** [MIT License](Computer Networks (CPT Design)/LICENSE)
 
 ---
 
@@ -29,7 +29,7 @@ This project consisted of two tasks focused on web API development:
 1. **JSON and JSON Schemas:** Design a database based on a strict set of data, handling JSON and JSON schemas.
 2. **Database Migration and Analysis:** Migrate JSON data into a MySQL database, providing CRUD capabilities and data visualization through charts, along with a user login form.
 
-**License:** [MIT License](Internet Programming (Web API)/LICENSE.txt)
+**License:** [MIT License](Internet Programming (Web API)/LICENSE)
 
 ---
 
@@ -47,7 +47,7 @@ This project involved designing two systems using Tinkercad:
 1. **Christmas Decoration Lighting System:** Optimized for power and CPU efficiency.
 2. **Pedestrian Streetlight System:** Designed with button controls and logic. Both designs were converted into direct port manipulation for improved speed and efficiency.
 
-**License:** [MIT License](Modern Computer Architecture (Arduino)/LICENSE.txt)
+**License:** [MIT License](Modern Computer Architecture (Arduino)/LICENSE)
 
 ---
 
@@ -55,12 +55,12 @@ This project involved designing two systems using Tinkercad:
 **Description:**
 This project required the development of an ERP-like system in Java for an electricity company. The system managed client data using CSV files, tracking payments, records, and power consumption per client, which posed a significant challenge compared to traditional database management.
 
-**License:** [MIT License](Object Software (Java Program)/LICENSE.txt)
+**License:** [MIT License](Object Software (Java Program)/LICENSE)
 
 ---
 
 ## License
-Each project in this repository is licensed under the MIT License, except for the AI Firewall project. See the `LICENSE.txt` file in each unique project directory for details.
+Each project in this repository is licensed under the MIT License, except for the AI Firewall project. See the `LICENSE` file in each unique project directory for details.
 
 ---
 
