@@ -3,6 +3,9 @@
 ## Overview
 Welcome to the repository containing my final exam projects for the MSc program in Internet Security. Each project showcases advanced and challenging tasks completed within a short timeframe, demonstrating my ability to exceed expectations through additional research and refinement.
 
+## License Badge
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 ## Projects
 Below is a list of unique projects included in this repository. Each project, except for the AI Firewall, is licensed under the MIT License.
 
@@ -19,7 +22,7 @@ This project involved designing a comprehensive network for a company with appro
 - HSRP
 - ACL
 
-**License:** [MIT License](Computer Networks (CPT Design)/LICENSE)
+**License:** [MIT License](Computer%20Networks%20(CPT%20Design)/LICENSE)
 
 ---
 
@@ -29,7 +32,7 @@ This project consisted of two tasks focused on web API development:
 1. **JSON and JSON Schemas:** Design a database based on a strict set of data, handling JSON and JSON schemas.
 2. **Database Migration and Analysis:** Migrate JSON data into a MySQL database, providing CRUD capabilities and data visualization through charts, along with a user login form.
 
-**License:** [MIT License](Internet Programming (Web API)/LICENSE)
+**License:** [MIT License](Internet%20Programming%20(Web%20API)/LICENSE)
 
 ---
 
@@ -47,7 +50,7 @@ This project involved designing two systems using Tinkercad:
 1. **Christmas Decoration Lighting System:** Optimized for power and CPU efficiency.
 2. **Pedestrian Streetlight System:** Designed with button controls and logic. Both designs were converted into direct port manipulation for improved speed and efficiency.
 
-**License:** [MIT License](Modern Computer Architecture (Arduino)/LICENSE)
+**License:** [MIT License](Modern%20Computer%20Architecture%20(Arduino)/LICENSE)
 
 ---
 
@@ -55,7 +58,7 @@ This project involved designing two systems using Tinkercad:
 **Description:**
 This project required the development of an ERP-like system in Java for an electricity company. The system managed client data using CSV files, tracking payments, records, and power consumption per client, which posed a significant challenge compared to traditional database management.
 
-**License:** [MIT License](Object Software (Java Program)/LICENSE)
+**License:** [MIT License](Object%20Software%20(Java%20Program)/LICENSE)
 
 ---
 
