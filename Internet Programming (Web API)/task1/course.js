@@ -220,7 +220,7 @@ async function getCurrencyRates(currency_before, cuyrrency_after) {
 
   try { // try catch for error logging.
     const apiHeaders = new Headers();
-    apiHeaders.append("apikey", "ongniIioNKlSWs6Pr29L7eY12yIuAHz6"); // send api key in header 180/250 requests already done with this key.
+    apiHeaders.append("apikey", ""); // send api key in header 180/250 requests already done with this key.
 
     const requestOptions = {
       method: 'GET',
